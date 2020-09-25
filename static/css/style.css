@@ -110,11 +110,18 @@ select {
   animation: title 1.2s forwards linear;
 }
 
-.hero p {
+.hero h4 {
   font-size: 2rem;
   opacity: 0;
   animation: subtitle 1.2s forwards linear;
   animation-delay: 1.2s;
+}
+
+.hero p {
+  font-size: 2rem;
+  opacity: 0;
+  animation: subtitle 1.2s forwards linear;
+  animation-delay: 4s;
 }
 
 /* input placeholder color changes */

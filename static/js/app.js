@@ -1,3 +1,4 @@
+
 // Reference for data from data.js
 var tableData = data;
 
@@ -21,20 +22,10 @@ console.log(uniqueStates);
 var uniqueCountries = [...new Set(data.map(item => item.country))];
 console.log(uniqueCountries);
 var uniqueShapes = [...new Set(data.map(item => item.shape))];
-console.log(uniqueShapes);
+console.log(uniqueShapes.sort(d3.ascending));
 var uniqueDurations = [...new Set(data.map(item => item.durationMinutes))];
 console.log(uniqueDurations);
 // Duration formats are too inconsistent to clean up just now, recommend improved data collection...)
-
-// // Set up options for shape dropdown button
-// d3.select("#shape-input")
-//     .selectAll('myOptions')
-//         .data(uniqueShapes.sort(d3.ascending))
-//     .enter()
-//         .append('option')       
-//     .text(function (d) { return d; }) // text shown in the menu
-//     .attr("value", function (d) { return d; }); // corresponding value returned by the button
-
 
 //Function to display selected data in table
 function fillTable(x) {
@@ -73,6 +64,8 @@ button.on("click", function() {
 
     if (countryInput) {selectedData4 = selectedData3.filter(selectedData3 => (selectedData3.country === countryInput))}
     else {selectedData4 = selectedData3};
+
+//Possibly there's a way to put this shapes list together automatically... no time to figure it out now
 
     if (d3.select("#changing-input").property("checked")) {selectedData5 = selectedData4}
     else {selectedData5 = selectedData4.filter(selectedData4 => (selectedData4.shape != "changing"))};
@@ -128,5 +121,7 @@ button.on("click", function() {
     if (d3.select("#unknown-input").property("checked")) {selectedData22 = selectedData21}
     else {selectedData22 = selectedData21.filter(selectedData21 => (selectedData21.shape != "unknown"))};
 
+//And eventually might figure out how to organize and search the comments...
+
   //display final selection in table
-    fillTable(selectedData22)})
+    fillTable(selectedData22)});
